@@ -111,3 +111,4 @@ export class KycAdapter {
 }
 
 export const kycAdapter = new KycAdapter();
+

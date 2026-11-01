@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { CheckCircle2, Shield, Smartphone, Coins, BarChart3, Repeat, Users2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Advisor Desk & Back-Office Software for MFDs",
+  title: "Advisor App | Portfolio Pro",
   description:
     "Complete operational control for financial advisors: BSE StarMF transaction gateway, trail commission reconciliation, multi-asset portfolio accounting, and relationship manager supervision.",
 };

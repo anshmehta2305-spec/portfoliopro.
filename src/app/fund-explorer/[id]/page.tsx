@@ -1,4 +1,5 @@
 import React from "react";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { db } from "@/lib/db";
@@ -9,6 +10,18 @@ import { ArrowLeft, ShieldCheck, Award, TrendingUp, Layers, CheckCircle } from "
 
 interface Props {
   params: { id: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const fund = await db.fund.findUnique({ where: { id: params.id } });
+  if (!fund) {
+    return { title: "Fund Not Found | Portfolio Pro" };
+  }
+  const cleanName = fund.name.length > 40 ? fund.name.slice(0, 37) + "..." : fund.name;
+  return {
+    title: `${cleanName} | Portfolio Pro`,
+    description: `Inspect latest NAV, performance returns, and fund facts for ${fund.name}.`,
+  };
 }
 
 export default async function FundDetailPage({ params }: Props) {

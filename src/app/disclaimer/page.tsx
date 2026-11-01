@@ -4,7 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Statutory & Regulatory Disclaimer | Portfolio Pro",
+  title: "Disclaimer | Portfolio Pro",
   description: "Mandatory market risk disclosures and AMFI regulatory disclaimers.",
 };
 

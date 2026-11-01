@@ -16,10 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     where: { slug: params.slug },
   });
 
-  if (!post) return { title: "Article Not Found" };
+  if (!post) return { title: "Article Not Found | Portfolio Pro" };
 
+  const cleanTitle = post.title.length > 40 ? post.title.slice(0, 37) + "..." : post.title;
   return {
-    title: `${post.title} | Portfolio Pro Insights`,
+    title: `${cleanTitle} | Portfolio Pro`,
     description: post.excerpt,
   };
 }

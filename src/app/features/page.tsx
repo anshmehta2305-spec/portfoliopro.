@@ -9,7 +9,7 @@ import { featuresList } from "@/config/features";
 import { CheckCircle2, Shield, ArrowRight, Zap, Download } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "12 Enterprise Features for Mutual Fund Distributors",
+  title: "Features | Portfolio Pro",
   description:
     "Explore the complete feature architecture of Portfolio Pro: Video KYC, BSE StarMF & NSE NMF routing, Multi-asset reporting, CAS auto-sync, and Robo-advisory rebalancing.",
 };

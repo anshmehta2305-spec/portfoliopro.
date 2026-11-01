@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 import { Briefcase, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Careers & Engineering Openings | Portfolio Pro",
+  title: "Careers | Portfolio Pro",
   description: "Join Portfolio Pro in Mumbai and Bengaluru as we engineer the infrastructure powering India's wealth management industry.",
 };
 

@@ -117,3 +117,4 @@ If any anomaly occurs during live trading (e.g. exchange timeout or payment webh
 1. Immediately set `NEXT_PUBLIC_LIVE_TRADING_ENABLED="false"` in Vercel.
 2. Click **Redeploy**.
 3. Within 60 seconds, all direct purchase buttons revert to the safe Showcase Lead-Capture mode, protecting client capital while you investigate.
+

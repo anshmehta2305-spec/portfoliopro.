@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Globe, CheckCircle2, ShieldCheck, Sparkles, Layout, Smartphone } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AMFI-Compliant Financial Websites for Mutual Fund Distributors",
+  title: "Websites for MFDs | Portfolio Pro",
   description:
     "Launch a high-converting, mobile-responsive financial advisory website complete with SIP calculators, live AMFI NAV fund feeds, lead capture forms, and client login.",
 };

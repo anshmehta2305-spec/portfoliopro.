@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Bot, Sparkles, TrendingUp, Sliders, ShieldAlert, CheckCircle2, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Robo Advisory & Model Portfolio Rebalancing Engine",
+  title: "Robo Advisory | Portfolio Pro",
   description:
     "Algorithmic model portfolios, automatic asset allocation drift alerts, and one-click rebalancing for mutual fund distributors.",
 };

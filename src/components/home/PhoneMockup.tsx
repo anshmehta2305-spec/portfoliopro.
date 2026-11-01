@@ -6,7 +6,7 @@ interface PhoneMockupProps {
   appName?: string;
 }
 
-export function PhoneMockup({ appType, appName = "Your Wealth Firm" }: PhoneMockupProps) {
+export function PhoneMockup({ appType, appName = "Portfolio Pro" }: PhoneMockupProps) {
   const isInvestor = appType === "investor";
 
   return (

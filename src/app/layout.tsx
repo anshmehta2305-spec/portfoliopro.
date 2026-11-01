@@ -12,8 +12,8 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXTAUTH_URL || "https://portfoliopro.in"),
   title: {
-    default: "Portfolio Pro | White-Label Mutual Fund Software & Wealth Tech for MFDs",
-    template: "%s | Portfolio Pro",
+    default: "Portfolio Pro | Invest Smarter. Grow Together.",
+    template: "%s",
   },
   description:
     "Empower your advisory firm with Portfolio Pro. White-labeled investor mobile app & portal, BSE StarMF & NSE NMF transaction execution, CAS mailback reconciliation, and robo-advisory rebalancing for Indian MFDs & IFAs.",
@@ -29,22 +29,40 @@ export const metadata: Metadata = {
     "AMFI compliant financial website",
   ],
   authors: [{ name: "Portfolio Pro Technologies" }],
+  manifest: "/site.webmanifest",
   icons: {
-    icon: "/brand/emblem.svg",
-    apple: "/brand/emblem.svg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://portfoliopro.in",
-    title: "Portfolio Pro | White-Label Wealth Management Platform for MFDs",
-    description: "Bank-grade white-label software for Mutual Fund Distributors and IFAs in India.",
-    siteName: siteConfig.name,
+    title: "Portfolio Pro | Invest Smarter. Grow Together.",
+    description: "Bank-grade white-label software and client portal for Mutual Fund Distributors and IFAs in India.",
+    siteName: "Portfolio Pro",
+    images: [
+      {
+        url: "/brand/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Portfolio Pro - Wealth Tech Platform",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio Pro | White-Label Wealth Tech for MFDs",
-    description: "Invest Smarter. Grow Together. The complete multi-asset platform for Indian financial distributors.",
+    title: "Portfolio Pro | Invest Smarter. Grow Together.",
+    description: "Bank-grade white-label software and client portal for Mutual Fund Distributors and IFAs in India.",
+    images: ["/brand/logo.png"],
   },
 };
 
@@ -85,6 +103,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta name="theme-color" content="#1D5FB5" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

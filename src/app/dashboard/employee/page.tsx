@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { FileSpreadsheet, CheckCircle2, Clock, AlertTriangle, RefreshCw } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Back-Office Operations & Reconciliation Console | Portfolio Pro",
+  title: "Operations Desk | Portfolio Pro",
 };
 
 export default function EmployeeDashboardPage() {

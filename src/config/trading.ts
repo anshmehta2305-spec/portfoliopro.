@@ -42,3 +42,4 @@ export function getComplianceTextDisplay(): string {
   const euin = TRADING_CONFIG.amfiEuin ? ` | EUIN: ${TRADING_CONFIG.amfiEuin}` : "";
   return `AMFI-Registered Mutual Fund Distributor | ${arn}${euin}`;
 }
+

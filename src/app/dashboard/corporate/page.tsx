@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Building, TrendingUp, Users, FileSpreadsheet, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Corporate ARN Portfolio Console | Portfolio Pro",
+  title: "Corporate Desk | Portfolio Pro",
 };
 
 export default function CorporateDashboardPage() {

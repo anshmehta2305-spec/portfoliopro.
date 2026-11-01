@@ -7,7 +7,7 @@ import { db } from "@/lib/db";
 import { ArrowRight, BookOpen, Clock, User } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Industry Insights & Playbooks for Mutual Fund Distributors",
+  title: "Blog & Insights | Portfolio Pro",
   description:
     "Knowledge desk for Indian IFAs and MFDs: scaling monthly SIP books, BSE StarMF vs NSE NMF technical architecture, and capital gains tax updates.",
 };

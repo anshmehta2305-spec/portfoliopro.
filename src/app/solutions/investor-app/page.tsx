@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { CheckCircle2, Shield, Smartphone, Lock, TrendingUp, Sparkles, Download } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "White-Label Investor Mobile App & Web Portal",
+  title: "Investor App | Portfolio Pro",
   description:
     "Give your clients a bank-grade mobile app branded with your firm's name and logo. Biometric login, one-click SIP approval, and consolidated family portfolio tracking.",
 };

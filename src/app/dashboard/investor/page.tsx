@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Investor Portfolio Dashboard | Portfolio Pro",
+  title: "My Portfolio | Portfolio Pro",
 };
 
 export default async function InvestorDashboardPage() {

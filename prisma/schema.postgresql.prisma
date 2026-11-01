@@ -253,3 +253,4 @@ model Notification {
   link      String?
   createdAt DateTime @default(now())
 }
+

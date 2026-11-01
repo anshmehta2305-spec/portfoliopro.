@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Building, Users, Target, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Branch Office Console | Portfolio Pro",
+  title: "Branch Portal | Portfolio Pro",
 };
 
 export default function BranchDashboardPage() {

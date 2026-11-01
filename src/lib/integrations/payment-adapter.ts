@@ -186,3 +186,4 @@ export class PaymentGatewayAdapter {
 }
 
 export const paymentAdapter = new PaymentGatewayAdapter();
+

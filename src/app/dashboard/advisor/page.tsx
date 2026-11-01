@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Advisor & IFA Back-Office Desk | Portfolio Pro",
+  title: "Advisor Desk | Portfolio Pro",
 };
 
 export default async function AdvisorDashboardPage() {

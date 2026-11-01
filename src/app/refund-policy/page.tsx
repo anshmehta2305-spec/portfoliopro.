@@ -4,7 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Refund & Cancellation Policy | Portfolio Pro",
+  title: "Refund Policy | Portfolio Pro",
   description: "Subscription cancellation and refund policy for Portfolio Pro.",
 };
 

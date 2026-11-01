@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Users, Calendar, PhoneCall, CheckCircle2, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Relationship Manager (RM) Console | Portfolio Pro",
+  title: "RM Desk | Portfolio Pro",
 };
 
 export default function RmDashboardPage() {

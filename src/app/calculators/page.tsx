@@ -6,9 +6,9 @@ import { CalculatorsContainer } from "@/components/calculators/CalculatorsContai
 import { Calculator, ShieldCheck, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "10 Interactive Financial & MFD Calculators | SIP, SWP, Tax, Trail",
+  title: "Investment Calculators | Portfolio Pro",
   description:
-    "Institutional financial calculators: SIP, Lumpsum, Step-up SIP, SWP, Goal GPS, Retirement, Education, Inflation, MFD Trail Brokerage, and 12.5% LTCG/STCG Tax.",
+    "Institutional financial calculators: SIP, Lumpsum, Step-up SIP, SWP, Goal GPS, Retirement, Education, Inflation, and 12.5% Capital Gains Tax.",
 };
 
 export default function CalculatorsPage() {

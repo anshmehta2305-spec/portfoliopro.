@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Users2, MessageSquare, Bell, Calendar, Sparkles, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Distributor CRM & WhatsApp Automation for MFDs",
+  title: "Distributor CRM | Portfolio Pro",
   description:
     "Automate lead pipelines, SIP upcoming due alerts, birthday greetings, and tax-saving campaigns directly through official WhatsApp Cloud API.",
 };

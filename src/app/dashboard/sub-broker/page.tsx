@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Coins, Users, Repeat, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sub-Broker & Partner Console | Portfolio Pro",
+  title: "Sub-Broker Portal | Portfolio Pro",
 };
 
 export default function SubBrokerDashboardPage() {

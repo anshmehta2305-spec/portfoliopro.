@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 import { ShieldCheck, Award, Users, Building, Target, HeartHandshake } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us | Portfolio Pro Wealth Technology",
+  title: "About Us | Portfolio Pro",
   description:
     "Learn about Portfolio Pro, our mission to empower independent financial distributors with institutional-grade technology, and our leadership principles.",
 };

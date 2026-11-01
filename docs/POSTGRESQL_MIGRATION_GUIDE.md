@@ -92,3 +92,4 @@ pg_restore \
 1. Verify schema tables in Supabase Table Editor: `User`, `Client`, `Fund`, `Holding`, `Transaction`, `SIP`, `AuditLog`.
 2. Verify foreign key constraints and cascading deletes.
 3. Test query response times from Indian geographic regions (< 100ms on connection pool).
+

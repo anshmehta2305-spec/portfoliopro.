@@ -38,3 +38,4 @@ try {
 } catch (err) {
   console.error('Failed to regenerate prisma client:', err.message);
 }
+
