@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #FAF7F0; /* Ivory Classic background */
+  color: #222222; /* Charcoal */
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Classic selection highlight */
+::selection {
+  background-color: #B08D57;
+  color: #FFFFFF;
+}
+
+/* Print Optimization for Financial Reports */
+@media print {
+  header, footer, .no-print, [aria-label="Open AI Assistant"], a[href^="https://wa.me"] {
+    display: none !important;
+  }
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+  }
+}
+

@@ -1,0 +1,257 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String
+  passwordHash  String
+  role          String    @default("INVESTOR") // INVESTOR, ADVISOR, CORPORATE, EMPLOYEE, SUB_BROKER, BRANCH, RM, ADMIN
+  phone         String?
+  arnCode       String?
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  client        Client?
+  auditLogs     AuditLog[]
+}
+
+model Lead {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String
+  arn         String?
+  city        String?
+  interestedIn String? // JSON array or comma separated
+  stage       String   @default("NEW") // NEW, CONTACTED, DEMO_SCHEDULED, WON, LOST
+  score       Int      @default(50)
+  notes       String?
+  source      String   @default("WEBSITE")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model CallbackRequest {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String?
+  city      String?
+  preferredTime String?
+  status    String   @default("PENDING") // PENDING, CALLED, RESOLVED
+  createdAt DateTime @default(now())
+}
+
+model DemoBooking {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String
+  companyName  String?
+  arn          String?
+  selectedDate String
+  selectedSlot String
+  status       String   @default("CONFIRMED")
+  createdAt    DateTime @default(now())
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String
+  category    String
+  author      String   @default("Portfolio Pro Research Desk")
+  readTime    String   @default("5 min read")
+  isPublished Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  authorName  String
+  designation String
+  companyName String
+  location    String
+  rating      Int      @default(5)
+  feedback    String
+  isApproved  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Plan {
+  id          String   @id @default(cuid())
+  name        String   // Starter, Professional, Enterprise
+  tagline     String
+  monthlyPrice Int
+  yearlyPrice  Int
+  features    String   // JSON string of features
+  isPopular   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Fund {
+  id            String   @id @default(cuid())
+  amfiCode      String   @unique
+  name          String
+  category      String   // Large Cap, Mid Cap, Small Cap, Flexi Cap, Debt, Hybrid, Liquid
+  amc           String   // HDFC, ICICI Prudential, SBI, Nippon India, Mirae Asset
+  nav           Float
+  navDate       String
+  oneYearReturn Float
+  threeYearReturn Float
+  fiveYearReturn Float
+  expenseRatio  Float
+  aumCrores     Float
+  riskLevel     String   // Low, Moderate, High, Very High
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  navHistory    NavHistory[]
+  holdings      Holding[]
+  sips          SIP[]
+}
+
+model NavHistory {
+  id        String   @id @default(cuid())
+  fundId    String
+  fund      Fund     @relation(fields: [fundId], references: [id], onDelete: Cascade)
+  navDate   String
+  nav       Float
+  createdAt DateTime @default(now())
+}
+
+model Client {
+  id            String   @id @default(cuid())
+  userId        String?  @unique
+  user          User?    @relation(fields: [userId], references: [id])
+  pan           String   @unique
+  name          String
+  email         String
+  phone         String
+  kycStatus     String   @default("VERIFIED") // VERIFIED, PENDING, REJECTED
+  riskProfile   String   @default("MODERATE") // CONSERVATIVE, MODERATE, AGGRESSIVE
+  totalAum      Float    @default(0.0)
+  totalCost     Float    @default(0.0)
+  xirr          Float    @default(0.0)
+  assignedAdvisor String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  holdings      Holding[]
+  transactions  Transaction[]
+  sips          SIP[]
+  goals         Goal[]
+  documents     Document[]
+}
+
+model Holding {
+  id            String   @id @default(cuid())
+  clientId      String
+  client        Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  fundId        String
+  fund          Fund     @relation(fields: [fundId], references: [id])
+  folioNumber   String
+  units         Float
+  avgNav        Float
+  currentNav    Float
+  currentValue  Float
+  investedValue Float
+  absoluteReturn Float
+  xirr          Float
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Transaction {
+  id            String   @id @default(cuid())
+  clientId      String
+  client        Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  folioNumber   String
+  schemeName    String
+  type          String   // PURCHASE, SIP, REDEMPTION, SWITCH, STP, SWP
+  amount        Float
+  units         Float
+  nav           Float
+  transDate     String
+  status        String   @default("SUCCESS") // SUCCESS, PENDING, FAILED
+  platform      String   @default("BSE_STAR") // BSE_STAR, NSE_NMF
+  createdAt     DateTime @default(now())
+}
+
+model SIP {
+  id            String   @id @default(cuid())
+  clientId      String
+  client        Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  fundId        String
+  fund          Fund     @relation(fields: [fundId], references: [id])
+  folioNumber   String
+  amount        Float
+  frequency     String   @default("MONTHLY")
+  sipDate       Int      // day of month e.g. 5, 10, 15
+  startDate     String
+  nextExecutionDate String
+  status        String   @default("ACTIVE") // ACTIVE, PAUSED, CANCELLED
+  mandateId     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Goal {
+  id            String   @id @default(cuid())
+  clientId      String
+  client        Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  title         String   // Retirement, Child Higher Education, Dream Home
+  category      String
+  targetAmount  Float
+  currentAmount Float    @default(0.0)
+  targetYear    Int
+  monthlySipRequired Float @default(0.0)
+  status        String   @default("ON_TRACK") // ON_TRACK, AT_RISK, ACHIEVED
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Document {
+  id          String   @id @default(cuid())
+  clientId    String
+  client      Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  title       String   // Capital Gain FY24, Portfolio Valuation, CAS Statement
+  docType     String   // REPORT, CAS, KYC, TAX
+  fileUrl     String
+  generatedAt DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String   // LOGIN, ORDER_PLACED, REPORT_GENERATED, LEAD_UPDATE
+  details   String
+  ipAddress String?
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  type      String   @default("INFO") // INFO, ALERT, SUCCESS, WARNING
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+}
+
+

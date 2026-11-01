@@ -1,0 +1,193 @@
+export interface FeatureItem {
+  id: string;
+  title: string;
+  badge: string;
+  shortDesc: string;
+  detailedDesc: string;
+  capabilities: string[];
+  icon: string;
+}
+
+export const featuresList: FeatureItem[] = [
+  {
+    id: "digital-onboarding",
+    title: "Client Onboarding & Digital KYC",
+    badge: "Paperless",
+    shortDesc: "Complete Aadhaar OTP e-KYC, Video KYC, e-sign, and instant NPCI e-mandate registration in under 3 minutes.",
+    detailedDesc: "Eliminate physical paperwork and turnaround delays. Our automated client lifecycle management platform supports instant KRA validation, DigiLocker integration, and Video In-Person Verification (VIPV) compliant with SEBI and AMFI guidelines.",
+    capabilities: [
+      "Instant PAN & KRA verification (CVL, NDML, CAMS, Karvy, DotEx)",
+      "DigiLocker integration for seamless address verification",
+      "Video KYC with geo-tagging, liveness detection & timestamping",
+      "One-click NPCI e-Mandate setup via NetBanking & UPI AutoPay",
+      "Multi-holder folios (Joint, Anyone or Survivor, Minor through Guardian)",
+    ],
+    icon: "UserCheck",
+  },
+  {
+    id: "bse-nse-execution",
+    title: "BSE StarMF & NSE NMF II Order Execution",
+    badge: "Exchange Rails",
+    shortDesc: "Direct 2-way multi-asset order execution engine for Lumpsum, SIP, STP, SWP, Switch, and Instant Redemptions.",
+    detailedDesc: "Execute transactions on behalf of clients or send pre-filled approval payment links via WhatsApp and Email. High-availability routing switches automatically between BSE StarMF and NSE NMF II with zero latency.",
+    capabilities: [
+      "Lumpsum purchases with instant UPI & NetBanking approval links",
+      "Automated SIP registration with flexible dates and Step-Up facility",
+      "Systematic Transfer Plans (STP) & Systematic Withdrawal Plans (SWP)",
+      "Inter-scheme and intra-scheme switches with live NAV validation",
+      "Real-time order book status tracking with ICCL / NSE settlement confirmations",
+    ],
+    icon: "Repeat",
+  },
+  {
+    id: "multi-asset-tracking",
+    title: "Multi-Asset Holistic Wealth Tracking",
+    badge: "360° Portfolio",
+    shortDesc: "Consolidate mutual funds, direct equities, bonds, fixed deposits, PMS, AIF, insurance, NPS, and real estate in one ledger.",
+    detailedDesc: "Give your clients a unified family wealth dashboard. Track institutional and retail assets with live market valuation, interest accruals, maturity reminders, and asset allocation pie charts.",
+    capabilities: [
+      "Direct equity feeds via CDSL / NSDL CAS integration",
+      "Corporate Fixed Deposits & Sovereign Gold Bonds (SGB) tracking",
+      "Alternative Investment Funds (AIF Cat I, II, III) & PMS reporting",
+      "Life & General Insurance policy tracking with renewal alerts",
+      "National Pension System (NPS Tier I & II) PRAN valuation",
+    ],
+    icon: "PieChart",
+  },
+  {
+    id: "portfolio-reports",
+    title: "40+ Institutional Visual Reports",
+    badge: "Analytics",
+    shortDesc: "Generate audited Capital Gains (LTCG/STCG with grandfathering), XIRR, Holding Statements, and Net Worth dossiers.",
+    detailedDesc: "Empower your clients and their chartered accountants with pixel-perfect PDF and Excel reports customized with your advisory firm's branding, watermark, and compliance disclaimers.",
+    capabilities: [
+      "Capital Gains Tax Statement segregated by 12.5% LTCG and 20% STCG",
+      "Multi-period CAGR and XIRR performance attribution analysis",
+      "Consolidated Family Net Worth and asset allocation breakdown",
+      "SIP Book growth analysis, bounce tracking, and upcoming expiry reports",
+      "Portfolio Solvency, Risk Concentration, and Scheme Overlap audit",
+    ],
+    icon: "BarChart3",
+  },
+  {
+    id: "cas-import",
+    title: "Automated CAS Import & Reconciliation",
+    badge: "Zero Discrepancy",
+    shortDesc: "Automated mailback parsing for CAMS, KFintech, and NSDL Consolidated Account Statements.",
+    detailedDesc: "Never miss an off-platform transaction or dividend payout. Set up automated scheduler feeds that ingest daily RTA feeds (WBR2, WBR9, WBR49) and reconcile investor folios effortlessly.",
+    capabilities: [
+      "One-click password-protected CAS PDF upload and smart OCR parser",
+      "Automated CAMS & KFintech daily mailback mailbox synchronization",
+      "Historical folio matching across PAN, mobile number, and email ID",
+      "Automatic dividend reinvestment and payout transaction adjustments",
+      "Out-of-sync alert notifications for unmatched investor units",
+    ],
+    icon: "FileSpreadsheet",
+  },
+  {
+    id: "brokerage-management",
+    title: "Brokerage & Trail Commission Reconciliation",
+    badge: "Revenue Ops",
+    shortDesc: "Reconcile gross vs net trail commissions across AMCs, calculate sub-broker payouts, and prevent revenue leakage.",
+    detailedDesc: "Track every single rupee of trail commission across scheme categories. Ingest monthly AMC commission statements, verify TDS deductions, and auto-generate sub-broker payout sheets.",
+    capabilities: [
+      "Scheme-wise and AMC-wise trail commission rate card management",
+      "Automated ingestion of AMC monthly brokerage advice PDFs and Excels",
+      "Sub-broker / Franchisee commission sharing calculator with custom slabs",
+      "Discrepancy audit flag for clawbacks, rate cuts, and unpaid folios",
+      "GST input tax credit matching and annual brokerage projection forecasts",
+    ],
+    icon: "Coins",
+  },
+  {
+    id: "goal-planning",
+    title: "Goal GPS & Risk Profiling Engine",
+    badge: "Advisory Core",
+    shortDesc: "Scientifically map client investments to life goals (Retirement, Education, Home) with dynamic progress tracking.",
+    detailedDesc: "Move discussions from returns to life milestones. Use psychometric risk-profiling questionnaires that automatically recommend personalized asset allocation mixes and monthly SIP targets.",
+    capabilities: [
+      "SEBI-aligned risk profiling questionnaire with automated risk scoring",
+      "Milestone-based Goal GPS with inflation adjustment indexation",
+      "Shortfall alerts when portfolio returns lag behind target trajectory",
+      "Emergency Fund 'Online ATM' liquidity reserve planning",
+      "Interactive Goal Achiever visual simulators for client review meetings",
+    ],
+    icon: "Compass",
+  },
+  {
+    id: "robo-advisory",
+    title: "Robo Advisory & Rebalancing Engine",
+    badge: "AI Powered",
+    shortDesc: "Algorithmic model portfolios, automatic drift detection, and one-click portfolio rebalancing recommendations.",
+    detailedDesc: "Construct curated Model Portfolios (Aggressive Growth, Balanced Wealth, Capital Preservation) and monitor asset drift. When equity allocation exceeds target bands, the system creates instant rebalancing orders.",
+    capabilities: [
+      "Custom Model Portfolios created by your in-house research desk",
+      "Automated asset allocation drift alerts (e.g. Equity +5% deviation)",
+      "Tax-efficient rebalancing logic minimizing STCG and exit loads",
+      "Bulk rebalance order generation sent directly to BSE/NSE gateways",
+      "Periodic fund review notifications for underperforming schemes",
+    ],
+    icon: "Bot",
+  },
+  {
+    id: "distributor-crm",
+    title: "Wealth CRM & Lead Pipeline Manager",
+    badge: "Growth Engine",
+    shortDesc: "Comprehensive relationship manager console with lead stages, task reminders, interaction notes, and anniversary alerts.",
+    detailedDesc: "Specially crafted for financial advisors. Track prospective investors through New > Contacted > Demo > Won pipelines. Never forget a client's birthday, anniversary, or scheduled portfolio review.",
+    capabilities: [
+      "Visual Kanban pipeline for advisory sales and client conversion",
+      "Automated birthday and wedding anniversary personalized greetings",
+      "Scheduled client portfolio review reminders and meeting logs",
+      "Document vault per client with KYC, agreements, and tax forms",
+      "Custom tagging by investor segment (HNI, Ultra HNI, Retail, Corporate)",
+    ],
+    icon: "Users2",
+  },
+  {
+    id: "campaigns-reminders",
+    title: "WhatsApp, SMS & Email Auto-Campaigns",
+    badge: "Engagement",
+    shortDesc: "Send market updates, SIP due reminders, birthday greetings, and tax saving nudges directly via official WhatsApp API.",
+    detailedDesc: "Boost investor engagement and retention with automated omnichannel communication. Send interactive WhatsApp messages with payment buttons that allow clients to approve top-ups in seconds.",
+    capabilities: [
+      "Official Meta WhatsApp Cloud API integration with verified sender name",
+      "SIP upcoming due alerts sent 3 days prior with mandate balance reminders",
+      "Monthly market commentary and curated educational newsletter templates",
+      "ELSS tax-saving campaign triggers sent automatically in January - March",
+      "Open rate, delivery status, and link click engagement analytics",
+    ],
+    icon: "MessageSquare",
+  },
+  {
+    id: "white-label-branding",
+    title: "100% White-Label Customization",
+    badge: "Your Identity",
+    shortDesc: "Your brand name, your logo, your corporate colors, your custom domain (e.g., portal.yourwealthfirm.com).",
+    detailedDesc: "Maintain complete institutional trust. Your investors interact exclusively with your brand name across the web portal, mobile app splash screens, monthly email statements, and printed reports.",
+    capabilities: [
+      "Custom domain configuration with automatic zero-cost SSL certificates",
+      "Brand theme customization (Primary, Secondary, Accent palette selection)",
+      "Custom Android & iOS application published on your Google & Apple accounts",
+      "White-labeled email templates and custom sender domain (DKIM/SPF)",
+      "Dynamic PDF watermarking with your firm's AMFI ARN and logo",
+    ],
+    icon: "Sparkles",
+  },
+  {
+    id: "multi-tier-hierarchy",
+    title: "Enterprise Multi-User Hierarchy & RBAC",
+    badge: "Scale Ready",
+    shortDesc: "Granular role-based permissions for Admins, Back-Office Employees, RMs, Branch Heads, and Sub-Brokers.",
+    detailedDesc: "Designed for expanding wealth firms. Delegate operations while maintaining airtight data confidentiality. Relationship managers only see their assigned clients, while branch heads review local performance.",
+    capabilities: [
+      "8 Pre-configured role profiles: Investor, IFA, Corporate, Ops, Sub-broker, Branch, RM, Admin",
+      "Role-scoped data filtering preventing cross-advisor client data leakage",
+      "Granular permission matrix (view only, create orders, export reports)",
+      "Comprehensive audit trails capturing every login, view, and transaction",
+      "Session timeout controls, two-factor authentication, and IP whitelisting",
+    ],
+    icon: "ShieldCheck",
+  },
+];
+
