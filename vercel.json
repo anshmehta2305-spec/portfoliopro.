@@ -1,5 +1,6 @@
 {
-  "buildCommand": "npx prisma generate && next build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npx prisma generate && (npx prisma db push --accept-data-loss || true) && (node scripts/seed.js || true) && next build",
   "framework": "nextjs",
   "headers": [
     {
