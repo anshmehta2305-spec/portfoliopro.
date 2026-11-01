@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Mail, Phone, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { siteConfig } from "@/config/site";
+import { getComplianceTextDisplay, TRADING_CONFIG } from "@/config/trading";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -207,9 +208,9 @@ export function Footer() {
           <div className="flex items-start gap-2 bg-navy p-3.5 rounded border border-navy-light text-gray-300">
             <ShieldCheck className="w-4 h-4 text-gold shrink-0 mt-0.5" />
             <div className="space-y-1">
-              <p className="font-medium text-white">{siteConfig.complianceText}</p>
-              <p className="text-[11px] text-gray-400 leading-relaxed font-sans">
-                {siteConfig.riskDisclaimer}
+              <p className="font-medium text-white">{getComplianceTextDisplay()}</p>
+              <p className="text-[11px] text-amber-200/90 leading-relaxed font-sans font-medium">
+                {TRADING_CONFIG.statutoryRiskDisclaimer}
               </p>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/components/i18n/LanguageProvider";
+import { PreviewModeBanner } from "@/components/layout/PreviewModeBanner";
 import { UtilityBar } from "@/components/layout/UtilityBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -91,6 +92,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-ivory text-charcoal font-sans antialiased selection:bg-gold selection:text-white">
         <LanguageProvider>
+          <PreviewModeBanner />
           <UtilityBar />
           <Header />
           <main className="flex-1">{children}</main>

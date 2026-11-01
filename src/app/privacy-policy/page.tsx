@@ -18,6 +18,13 @@ export default function PrivacyPolicyPage() {
 
       <Section background="ivory" withOrnament>
         <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded border border-rule text-xs text-charcoal space-y-6 leading-relaxed font-sans">
+          {/* Lawyer Review Required Notice */}
+          <div className="p-3.5 bg-amber-50 border-2 border-amber-300 rounded text-amber-950 font-sans">
+            <span className="font-bold uppercase tracking-wider text-[10px] bg-amber-200 px-1.5 py-0.5 rounded mr-2">
+              Counsel Review Draft
+            </span>
+            <strong>Notice:</strong> This document is a preliminary regulatory compliance template. It must be formally reviewed and finalized by your designated legal and compliance counsel prior to live commercial operations under SEBI/AMFI regulations.
+          </div>
           <div>
             <h3 className="font-serif text-lg font-bold text-navy mb-2">1. Our Commitment to Distributor Data Confidentiality</h3>
             <p>

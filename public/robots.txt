@@ -3,6 +3,7 @@ Allow: /
 Disallow: /dashboard/
 Disallow: /api/
 Disallow: /auth/
+Disallow: /demo/
 
 Sitemap: https://portfoliopro.in/sitemap.xml
 

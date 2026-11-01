@@ -85,7 +85,7 @@ async function runBrowserAudit() {
     const investorPage = await investorContext.newPage();
     attachListeners(investorPage, 'Investor');
 
-    await investorPage.goto(`${BASE_URL}/auth/login?role=INVESTOR`, { waitUntil: 'networkidle2' });
+    await investorPage.goto(`${BASE_URL}/auth/login?role=INVESTOR&demo=1`, { waitUntil: 'networkidle2' });
     await investorPage.evaluate(() => new Promise((r) => setTimeout(r, 400)));
 
     const loginBtn = await investorPage.$('button[type="submit"]');
@@ -126,7 +126,7 @@ async function runBrowserAudit() {
     const advisorPage = await advisorContext.newPage();
     attachListeners(advisorPage, 'Advisor');
 
-    await advisorPage.goto(`${BASE_URL}/auth/login?role=ADVISOR`, { waitUntil: 'networkidle2' });
+    await advisorPage.goto(`${BASE_URL}/auth/login?role=ADVISOR&demo=1`, { waitUntil: 'networkidle2' });
     await advisorPage.evaluate(() => new Promise((r) => setTimeout(r, 500)));
 
     const advisorLoginBtn = await advisorPage.$('button[type="submit"]');
@@ -159,7 +159,7 @@ async function runBrowserAudit() {
     const adminPage = await adminContext.newPage();
     attachListeners(adminPage, 'Admin');
 
-    await adminPage.goto(`${BASE_URL}/auth/login?role=ADMIN`, { waitUntil: 'networkidle2' });
+    await adminPage.goto(`${BASE_URL}/auth/login?role=ADMIN&demo=1`, { waitUntil: 'networkidle2' });
     await adminPage.evaluate(() => new Promise((r) => setTimeout(r, 500)));
 
     const adminLoginBtn = await adminPage.$('button[type="submit"]');

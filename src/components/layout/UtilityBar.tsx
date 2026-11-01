@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Phone, Mail, MessageCircle, Globe } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { getAmfiArnDisplay } from "@/config/trading";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 
 export function UtilityBar() {
@@ -42,7 +43,7 @@ export function UtilityBar() {
         {/* Right: AMFI badge & Language Switcher */}
         <div className="flex items-center gap-4">
           <span className="hidden lg:inline-block text-[11px] text-gray-400">
-            {siteConfig.arnNumber} | AMFI Registered
+            {getAmfiArnDisplay()} | AMFI Registered
           </span>
 
           {/* English / Hindi Toggle */}

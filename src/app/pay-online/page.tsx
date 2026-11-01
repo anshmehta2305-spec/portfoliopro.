@@ -6,14 +6,16 @@ import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
 import { Card } from "@/components/ui/Card";
 import { siteConfig } from "@/config/site";
+import { isLiveTradingEnabled, TRADING_CONFIG } from "@/config/trading";
 
 export default function PayOnlinePage() {
-  const [arn, setArn] = useState("ARN-189420");
+  const isLive = isLiveTradingEnabled();
+  const [arn, setArn] = useState("");
   const [selectedPlan, setSelectedPlan] = useState("PROFESSIONAL");
   const [billingCycle, setBillingCycle] = useState<"MONTHLY" | "YEARLY">("YEARLY");
-  const [firmName, setFirmName] = useState("Singhania Wealth Management");
-  const [email, setEmail] = useState("advisor@portfoliopro.in");
-  const [mobile, setMobile] = useState("9811054321");
+  const [firmName, setFirmName] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
 
   const [processing, setProcessing] = useState(false);
   const [paidSuccess, setPaidSuccess] = useState(false);
@@ -71,6 +73,14 @@ export default function PayOnlinePage() {
         <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Form (7 cols) */}
           <div className="lg:col-span-7 bg-white p-8 rounded-[4px] border border-rule shadow-classic">
+            {!isLive && (
+              <div className="mb-6 p-3 bg-amber-50 border border-amber-200 rounded text-amber-900 text-xs">
+                <p className="font-bold text-amber-800">Preview Mode • Payment Gateway Sandbox</p>
+                <p className="text-[11px] mt-0.5 text-amber-950">
+                  Online payments are currently running in test sandbox mode. To execute official bank transfers, please contact our Bharuch desk directly at <strong>+91 97245 85704</strong>.
+                </p>
+              </div>
+            )}
             {paidSuccess ? (
               <div className="text-center py-8 space-y-4">
                 <div className="w-14 h-14 bg-emerald-50 text-emerald-700 rounded-full flex items-center justify-center mx-auto border border-emerald-200">

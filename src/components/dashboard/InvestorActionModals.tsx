@@ -15,8 +15,10 @@ import {
   CheckCircle2,
   Target,
   Edit3,
+  AlertCircle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { isLiveTradingEnabled } from "@/config/trading";
 
 interface Fund {
   id: string;
@@ -319,6 +321,17 @@ export function InvestorActionModals({
                 <X className="w-4 h-4" />
               </button>
             </div>
+
+            {/* Showcase Banner if live trading is off */}
+            {!isLiveTradingEnabled() && (
+              <div className="mb-4 p-2.5 bg-amber-50 border border-amber-300 rounded text-[11px] text-amber-900 flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-bold">Preview Mode: </span>
+                  Broker execution rails (BSE StarMF / NSE NMF) are not active. No live transactions or bank debits will occur.
+                </div>
+              </div>
+            )}
 
             {/* Tab selector */}
             <div className="grid grid-cols-4 gap-1 p-1 bg-ivory rounded border border-rule mb-4 font-semibold text-center">

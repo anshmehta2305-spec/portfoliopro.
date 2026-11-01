@@ -18,6 +18,13 @@ export default function TermsPage() {
 
       <Section background="ivory" withOrnament>
         <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded border border-rule text-xs text-charcoal space-y-6 leading-relaxed font-sans">
+          {/* Lawyer Review Required Notice */}
+          <div className="p-3.5 bg-amber-50 border-2 border-amber-300 rounded text-amber-950 font-sans">
+            <span className="font-bold uppercase tracking-wider text-[10px] bg-amber-200 px-1.5 py-0.5 rounded mr-2">
+              Counsel Review Draft
+            </span>
+            <strong>Notice:</strong> These Terms of Service represent a standard wealth-tech SaaS template and must be reviewed, customized, and approved by qualified legal counsel to match your firm's commercial terms and SEBI/AMFI regulatory mandates.
+          </div>
           <div>
             <h3 className="font-serif text-lg font-bold text-navy mb-2">1. Agreement to Terms</h3>
             <p>

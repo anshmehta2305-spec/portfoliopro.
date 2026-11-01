@@ -22,12 +22,13 @@ const DEMO_ACCOUNTS: Record<string, { email: string; name: string; target: strin
 function LoginFormContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const isDemo = searchParams.get("demo") === "1";
   const roleParam = searchParams.get("role") || "INVESTOR";
   const initialRole = DEMO_ACCOUNTS[roleParam] ? roleParam : "INVESTOR";
 
   const [role, setRole] = useState(initialRole);
-  const [email, setEmail] = useState(DEMO_ACCOUNTS[initialRole]?.email || "investor@portfoliopro.in");
-  const [password, setPassword] = useState("password123");
+  const [email, setEmail] = useState(isDemo ? DEMO_ACCOUNTS[initialRole]?.email || "" : "");
+  const [password, setPassword] = useState(isDemo ? "password123" : "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -37,15 +38,17 @@ function LoginFormContent() {
     const qRole = searchParams.get("role");
     if (qRole && DEMO_ACCOUNTS[qRole]) {
       setRole(qRole);
-      setEmail(DEMO_ACCOUNTS[qRole].email);
+      if (searchParams.get("demo") === "1") {
+        setEmail(DEMO_ACCOUNTS[qRole].email);
+      }
     }
   }, [searchParams]);
 
   useEffect(() => {
-    if (DEMO_ACCOUNTS[role]) {
+    if (isDemo && DEMO_ACCOUNTS[role]) {
       setEmail(DEMO_ACCOUNTS[role].email);
     }
-  }, [role]);
+  }, [role, isDemo]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -187,14 +190,14 @@ function LoginFormContent() {
           </button>
         </form>
 
-        {/* Demo Fast-Switch Helpers */}
+        {/* Footer Navigation Helpers */}
         <div className="mt-6 pt-4 border-t border-navy-light space-y-2 text-[11px] text-gray-400">
-          <div className="flex justify-between items-center text-gold font-semibold">
-            <span>Demo Test Password:</span>
-            <span className="font-mono bg-navy px-2 py-0.5 rounded border border-gold/40 text-white">
-              password123
-            </span>
-          </div>
+          {isDemo && (
+            <div className="flex justify-between items-center text-gold font-semibold bg-navy p-2 rounded border border-gold/40">
+              <span>Presentation Passcode:</span>
+              <span className="font-mono text-white">password123</span>
+            </div>
+          )}
 
           <div className="flex justify-between items-center pt-2">
             <Link href="/auth/register" className="text-gold font-bold hover:underline">
@@ -204,12 +207,12 @@ function LoginFormContent() {
               Forgot Password?
             </Link>
           </div>
-          <div className="flex justify-between items-center pt-1 text-[10px]">
+          <div className="flex justify-between items-center pt-2 text-[10px]">
             <Link href="/auth/otp-login" className="text-gray-400 hover:text-gold underline">
               Login via Mobile OTP
             </Link>
-            <Link href="/" className="text-gray-400 hover:text-gold underline">
-              ← Return Home
+            <Link href="/demo" className="text-gold hover:underline font-semibold">
+              Distributor Presentation Mode →
             </Link>
           </div>
         </div>
