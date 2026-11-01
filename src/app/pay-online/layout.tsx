@@ -8,3 +8,4 @@ export const metadata: Metadata = {
 export default function PayOnlineLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
+

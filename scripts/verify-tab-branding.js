@@ -142,3 +142,4 @@ verifyBranding().catch(err => {
   console.error('Branding verification failed:', err);
   process.exit(1);
 });
+

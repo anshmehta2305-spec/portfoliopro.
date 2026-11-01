@@ -8,3 +8,4 @@ export const metadata: Metadata = {
 export default function FundExplorerLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
+
