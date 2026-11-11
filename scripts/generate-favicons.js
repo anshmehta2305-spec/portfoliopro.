@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const EMBLEM_SVG_PATH = path.resolve(__dirname, '../public/brand/emblem.svg');
@@ -45,9 +46,11 @@ async function generateFavicons() {
   console.log('Generating favicon suite from Portfolio Pro emblem.svg...');
   const svgContent = fs.readFileSync(EMBLEM_SVG_PATH, 'utf8');
 
+  const tmpUserDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fav-profile-'));
   const browser = await puppeteer.launch({
     executablePath: CHROME_PATH,
     headless: 'new',
+    userDataDir: tmpUserDir,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
 
