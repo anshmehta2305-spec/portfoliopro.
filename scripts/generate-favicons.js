@@ -1,10 +1,9 @@
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 const path = require('path');
-const os = require('os');
 
 const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
-const EMBLEM_PNG_PATH = path.resolve(__dirname, '../public/brand/emblem.png');
+const EMBLEM_SVG_PATH = path.resolve(__dirname, '../public/brand/emblem.svg');
 const PUBLIC_DIR = path.resolve(__dirname, '../public');
 
 // Pack multiple PNG buffers into standard ICO format
@@ -43,48 +42,30 @@ function createIcoFromPngBuffers(pngBuffers) {
 }
 
 async function generateFavicons() {
-  console.log('Generating favicon suite from Portfolio Pro emblem.png...');
-  const emblemBase64 = fs.readFileSync(EMBLEM_PNG_PATH).toString('base64');
+  console.log('Generating favicon suite from Portfolio Pro emblem.svg...');
+  const svgContent = fs.readFileSync(EMBLEM_SVG_PATH, 'utf8');
 
-  const tmpUserDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fav-profile-'));
   const browser = await puppeteer.launch({
     executablePath: CHROME_PATH,
     headless: 'new',
-    userDataDir: tmpUserDir,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
 
   const page = await browser.newPage();
 
-  // HTML page embedding the exact brand emblem
+  // HTML page embedding the exact SVG
   const html = `
     <!DOCTYPE html>
     <html>
       <head>
         <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }
-          body, html { width: 100%; height: 100%; background: transparent; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-          .icon-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 20%;
-            overflow: hidden;
-            background: #08172E;
-          }
-          img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-          }
+          body, html { width: 100%; height: 100%; background: transparent; display: flex; align-items: center; justify-content: center; }
+          svg { width: 100%; height: 100%; display: block; }
         </style>
       </head>
       <body>
-        <div class="icon-container">
-          <img src="data:image/png;base64,${emblemBase64}" />
-        </div>
+        ${svgContent}
       </body>
     </html>
   `;
