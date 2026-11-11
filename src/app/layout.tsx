@@ -12,8 +12,8 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXTAUTH_URL || "https://portfoliopro.in"),
   title: {
-    default: "Portfolio Pro | Invest Smarter. Grow Together.",
-    template: "%s",
+    default: "Portfolio Pro",
+    template: "%s | Portfolio Pro",
   },
   description:
     "Empower your advisory firm with Portfolio Pro. White-labeled investor mobile app & portal, BSE StarMF & NSE NMF transaction execution, CAS mailback reconciliation, and robo-advisory rebalancing for Indian MFDs & IFAs.",
